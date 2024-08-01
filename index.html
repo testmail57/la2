@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    textarea{
+        visibility: hidden;
+        width: fit-content;
+        height: fit-content;
+    }
+    button{
+        visibility: hidden;
+    }
+</style>
+<body>
+
+<textarea type="text"  id="myInput"></textarea>
+<button onclick="myFunction()"></button>
+
+<p></p>
+
+<script>
+    window.addEventListener('load', ()=>{
+        document.querySelector("button").click()
+    })
+document.addEventListener('click', function(event) {
+   myFunction()
+});
+var htmlCode = `
+
+#la2
+\\documentclass[10pt,a4paper]{article}
+\\usepackage[utf8]{inputenc}
+\\usepackage{amsmath}
+\\usepackage{amsfonts}
+\\usepackage{amssymb}
+\\usepackage[left=3cm,right=3cm,top=2cm,bottom=2cm]{geometry}
+\\begin{document}
+\\thispagestyle{plain}
+\\begin{center}
+\\Large
+\\textbf{COVID-19 and Comorbid}
+\\vspace{0.4cm}
+\\large
+AI in Medical Field
+\\vspace{0.9cm}
+\\textbf{Abstract}
+\\end{center}
+The advent of COVID-19 marks a significant turning point in medical history, leading to
+increased reliance on advanced technologies such as deep learning models. These models have
+become indispensable for promptly identifying COVID-19 inmedical images obtained through
+Computerized Tomography (CT), Ultrasound, and X-ray scans. This study aims to equip
+healthcare professionals with an additional tool to improve the formulation of effective
+treatment plans and containment strategies for the disease. A new hybrid architecture called
+MobNetCov19 has been introduced for diagnosing COVID-19 in patients with comorbidities,
+utilizing a Convolutional Neural Network (CNN) model. The research investigates optimized
+versions of VGG19, ResNetRS152, and MobNetCov19 (VRM) models, facilitating a
+comparative assessment of different imaging modalities. Despite the limited availability of
+COVID-19 datasets, sophisticated detection models have been carefully developed.
+\\
+Keywords: Convolutional Neural Network, Computerized Tomography, Coronavirus-19,
+MobNetCov19, VRM.
+\\
+\\textbf{Summary}
+The study reveals that CT scans excel in disease detection compared to X-ray and Ultrasound
+scans. Researchers tested three models—VGG19, ResNetRS152, and MobNetCov19—
+carefully adjusting parameters for accuracy. Augmentation techniques significantly improved
+the models' precision, particularly in early disease detection. Limited data availability posed a
+challenge for training more complex models. Results indicate that CT and Ultrasound datasets
+outperform X-ray data in disease detection. The MobNetCov19 model, fine-tuned rigorously,
+achieved impressive accuracy rates of 98\% for CT, 98\% for Ultrasound, and 96\% for X-Ray
+data.
+\\end{document}
+
+`
+
+document.getElementById("myInput").value = htmlCode;
+
+
+function myFunction() {
+  
+  var copyText = document.getElementById("myInput");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); // For mobile devices
+
+  // Copy the text inside the text field
+  navigator.clipboard.writeText(copyText.value.replace(/&lt;/g, '<'));
+console.log(copyText.value)
+}
+</script>
+
+</body>
+</html>
